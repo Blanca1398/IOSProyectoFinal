@@ -1,0 +1,6 @@
+framework module Pods_ProyectoAppMoviles2 {
+  umbrella header "Pods-ProyectoAppMoviles2-umbrella.h"
+
+  export *
+  module * { export * }
+}
