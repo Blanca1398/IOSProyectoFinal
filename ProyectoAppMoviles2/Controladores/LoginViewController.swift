@@ -10,10 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var sesionButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        sesionButton.layer.cornerRadius = 15
     }
     
 

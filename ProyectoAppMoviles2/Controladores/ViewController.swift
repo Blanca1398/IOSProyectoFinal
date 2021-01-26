@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let countriesManager = CountriesManager()
-    let geoManager = GeoManager()
+    @IBOutlet weak var sesionButton: UIButton!
+    @IBOutlet weak var registrarsebutton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        countriesManager.realizarSolicitud()
-        geoManager.realizarSolicitud()
-        // Do any additional setup after loading the view.
+        sesionButton.layer.cornerRadius = 15
+        registrarsebutton.layer.cornerRadius = 15
     }
 
 

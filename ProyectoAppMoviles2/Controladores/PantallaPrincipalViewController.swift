@@ -1,19 +1,19 @@
 //
-//  RegistrarViewController.swift
+//  PantallaPrincipalViewController.swift
 //  ProyectoAppMoviles2
 //
-//  Created by Blanca Cordova on 30/12/20.
-//  Copyright © 2020 Blanca Cordova. All rights reserved.
+//  Created by Blanca Cordova on 05/01/21.
+//  Copyright © 2021 Blanca Cordova. All rights reserved.
 //
 
 import UIKit
 
-class RegistrarViewController: UIViewController {
+class PantallaPrincipalViewController: UIViewController {
 
-    @IBOutlet weak var registrarseButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        registrarseButton.layer.cornerRadius = 15
+
+        // Do any additional setup after loading the view.
     }
     
 

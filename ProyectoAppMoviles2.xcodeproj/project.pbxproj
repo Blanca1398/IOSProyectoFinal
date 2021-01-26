@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9DB30A536D0E6120EB45CC7C /* Pods_ProyectoAppMoviles2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E4D6E746F9E6FB83AC835D /* Pods_ProyectoAppMoviles2.framework */; };
+		F5024C0025B679C20003783B /* PaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5024BFF25B679C20003783B /* PaisViewController.swift */; };
+		F53440C425AAB4490063A2F6 /* CountriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53440C225AAB4490063A2F6 /* CountriesTableViewCell.swift */; };
+		F53440C525AAB4490063A2F6 /* CountriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F53440C325AAB4490063A2F6 /* CountriesTableViewCell.xib */; };
+		F556882425A52189001A4496 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556882325A52189001A4496 /* MenuViewController.swift */; };
+		F556882625A521B0001A4496 /* ExploradorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556882525A521B0001A4496 /* ExploradorViewController.swift */; };
+		F556882825A521C6001A4496 /* JuegoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556882725A521C6001A4496 /* JuegoViewController.swift */; };
+		F556882A25A521D4001A4496 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556882925A521D4001A4496 /* PerfilViewController.swift */; };
 		F55ABB8225887C4700ED099A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55ABB8125887C4700ED099A /* AppDelegate.swift */; };
 		F55ABB8425887C4700ED099A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55ABB8325887C4700ED099A /* SceneDelegate.swift */; };
 		F55ABB8625887C4700ED099A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55ABB8525887C4700ED099A /* ViewController.swift */; };
@@ -15,10 +22,16 @@
 		F55ABB8C25887C4700ED099A /* ProyectoAppMoviles2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F55ABB8A25887C4700ED099A /* ProyectoAppMoviles2.xcdatamodeld */; };
 		F55ABB8E25887C4B00ED099A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55ABB8D25887C4B00ED099A /* Assets.xcassets */; };
 		F55ABB9125887C4B00ED099A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55ABB8F25887C4B00ED099A /* LaunchScreen.storyboard */; };
+		F5641AF225A78021004AA0CC /* GeoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5641AF125A78021004AA0CC /* GeoData.swift */; };
+		F5641AF425A78042004AA0CC /* GeoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5641AF325A78041004AA0CC /* GeoModel.swift */; };
+		F5641AF625A7806B004AA0CC /* CountriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5641AF525A7806B004AA0CC /* CountriesData.swift */; };
+		F5641AF825A7807B004AA0CC /* CountriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5641AF725A7807B004AA0CC /* CountriesModel.swift */; };
 		F56BD66D2594326400B5F082 /* CountriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56BD66C2594326400B5F082 /* CountriesManager.swift */; };
 		F56BD66F259432B800B5F082 /* GeoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56BD66E259432B800B5F082 /* GeoManager.swift */; };
 		F576B277259D7708001C0B9E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576B276259D7708001C0B9E /* LoginViewController.swift */; };
 		F576B279259D771B001C0B9E /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576B278259D771B001C0B9E /* RegistrarViewController.swift */; };
+		F5879DB625BE18150045E2EF /* PerfilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5879DB525BE18150045E2EF /* PerfilModel.swift */; };
+		F5879DB825BE18270045E2EF /* NivelesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5879DB725BE18270045E2EF /* NivelesModel.swift */; };
 		F58816FE259D6BB100F59DD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F58816FD259D6BB100F59DD9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +39,13 @@
 		22E4D6E746F9E6FB83AC835D /* Pods_ProyectoAppMoviles2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProyectoAppMoviles2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		355F711F84EFF7AB49B0F758 /* Pods-ProyectoAppMoviles2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProyectoAppMoviles2.debug.xcconfig"; path = "Target Support Files/Pods-ProyectoAppMoviles2/Pods-ProyectoAppMoviles2.debug.xcconfig"; sourceTree = "<group>"; };
 		44205675E3CB2D19294D5D95 /* Pods-ProyectoAppMoviles2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProyectoAppMoviles2.release.xcconfig"; path = "Target Support Files/Pods-ProyectoAppMoviles2/Pods-ProyectoAppMoviles2.release.xcconfig"; sourceTree = "<group>"; };
+		F5024BFF25B679C20003783B /* PaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaisViewController.swift; sourceTree = "<group>"; };
+		F53440C225AAB4490063A2F6 /* CountriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewCell.swift; sourceTree = "<group>"; };
+		F53440C325AAB4490063A2F6 /* CountriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountriesTableViewCell.xib; sourceTree = "<group>"; };
+		F556882325A52189001A4496 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F556882525A521B0001A4496 /* ExploradorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploradorViewController.swift; sourceTree = "<group>"; };
+		F556882725A521C6001A4496 /* JuegoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegoViewController.swift; sourceTree = "<group>"; };
+		F556882925A521D4001A4496 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		F55ABB7E25887C4700ED099A /* ProyectoAppMoviles2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoAppMoviles2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55ABB8125887C4700ED099A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55ABB8325887C4700ED099A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,10 +55,16 @@
 		F55ABB8D25887C4B00ED099A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F55ABB9025887C4B00ED099A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F55ABB9225887C4B00ED099A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5641AF125A78021004AA0CC /* GeoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoData.swift; sourceTree = "<group>"; };
+		F5641AF325A78041004AA0CC /* GeoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeoModel.swift; path = "/Users/blancacordova/Documents/Dispositivos Moviles 2/ProyectoAppMoviles2/ProyectoAppMoviles2/GeoModel.swift"; sourceTree = "<absolute>"; };
+		F5641AF525A7806B004AA0CC /* CountriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesData.swift; sourceTree = "<group>"; };
+		F5641AF725A7807B004AA0CC /* CountriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesModel.swift; sourceTree = "<group>"; };
 		F56BD66C2594326400B5F082 /* CountriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesManager.swift; sourceTree = "<group>"; };
 		F56BD66E259432B800B5F082 /* GeoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoManager.swift; sourceTree = "<group>"; };
 		F576B276259D7708001C0B9E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F576B278259D771B001C0B9E /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
+		F5879DB525BE18150045E2EF /* PerfilModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilModel.swift; sourceTree = "<group>"; };
+		F5879DB725BE18270045E2EF /* NivelesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NivelesModel.swift; sourceTree = "<group>"; };
 		F58816FD259D6BB100F59DD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,8 +120,9 @@
 			children = (
 				F55ABB8125887C4700ED099A /* AppDelegate.swift */,
 				F55ABB8325887C4700ED099A /* SceneDelegate.swift */,
-				F56BD66C2594326400B5F082 /* CountriesManager.swift */,
-				F56BD66E259432B800B5F082 /* GeoManager.swift */,
+				F5879DB425BE17DD0045E2EF /* CoreDataClases */,
+				F5641AFA25A7809B004AA0CC /* GeoAPI */,
+				F5641AF925A78080004AA0CC /* CountriesAPI */,
 				F576B27B259D775E001C0B9E /* Vistas */,
 				F55ABB8D25887C4B00ED099A /* Assets.xcassets */,
 				F58816FD259D6BB100F59DD9 /* GoogleService-Info.plist */,
@@ -106,12 +133,38 @@
 			path = ProyectoAppMoviles2;
 			sourceTree = "<group>";
 		};
+		F5641AF925A78080004AA0CC /* CountriesAPI */ = {
+			isa = PBXGroup;
+			children = (
+				F5641AF725A7807B004AA0CC /* CountriesModel.swift */,
+				F56BD66C2594326400B5F082 /* CountriesManager.swift */,
+				F5641AF525A7806B004AA0CC /* CountriesData.swift */,
+			);
+			path = CountriesAPI;
+			sourceTree = "<group>";
+		};
+		F5641AFA25A7809B004AA0CC /* GeoAPI */ = {
+			isa = PBXGroup;
+			children = (
+				F5641AF125A78021004AA0CC /* GeoData.swift */,
+				F5641AF325A78041004AA0CC /* GeoModel.swift */,
+				F56BD66E259432B800B5F082 /* GeoManager.swift */,
+			);
+			path = GeoAPI;
+			sourceTree = "<group>";
+		};
 		F576B27A259D7725001C0B9E /* Controladores */ = {
 			isa = PBXGroup;
 			children = (
+				F53440C225AAB4490063A2F6 /* CountriesTableViewCell.swift */,
 				F55ABB8525887C4700ED099A /* ViewController.swift */,
 				F576B276259D7708001C0B9E /* LoginViewController.swift */,
 				F576B278259D771B001C0B9E /* RegistrarViewController.swift */,
+				F556882325A52189001A4496 /* MenuViewController.swift */,
+				F556882525A521B0001A4496 /* ExploradorViewController.swift */,
+				F556882725A521C6001A4496 /* JuegoViewController.swift */,
+				F556882925A521D4001A4496 /* PerfilViewController.swift */,
+				F5024BFF25B679C20003783B /* PaisViewController.swift */,
 			);
 			path = Controladores;
 			sourceTree = "<group>";
@@ -121,8 +174,18 @@
 			children = (
 				F55ABB8F25887C4B00ED099A /* LaunchScreen.storyboard */,
 				F55ABB8725887C4700ED099A /* Main.storyboard */,
+				F53440C325AAB4490063A2F6 /* CountriesTableViewCell.xib */,
 			);
 			path = Vistas;
+			sourceTree = "<group>";
+		};
+		F5879DB425BE17DD0045E2EF /* CoreDataClases */ = {
+			isa = PBXGroup;
+			children = (
+				F5879DB525BE18150045E2EF /* PerfilModel.swift */,
+				F5879DB725BE18270045E2EF /* NivelesModel.swift */,
+			);
+			path = CoreDataClases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +252,7 @@
 				F58816FE259D6BB100F59DD9 /* GoogleService-Info.plist in Resources */,
 				F55ABB8E25887C4B00ED099A /* Assets.xcassets in Resources */,
 				F55ABB8925887C4700ED099A /* Main.storyboard in Resources */,
+				F53440C525AAB4490063A2F6 /* CountriesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,13 +306,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F576B277259D7708001C0B9E /* LoginViewController.swift in Sources */,
+				F5879DB625BE18150045E2EF /* PerfilModel.swift in Sources */,
 				F56BD66F259432B800B5F082 /* GeoManager.swift in Sources */,
+				F556882825A521C6001A4496 /* JuegoViewController.swift in Sources */,
 				F576B279259D771B001C0B9E /* RegistrarViewController.swift in Sources */,
+				F5641AF625A7806B004AA0CC /* CountriesData.swift in Sources */,
 				F55ABB8625887C4700ED099A /* ViewController.swift in Sources */,
+				F556882625A521B0001A4496 /* ExploradorViewController.swift in Sources */,
+				F556882A25A521D4001A4496 /* PerfilViewController.swift in Sources */,
+				F5641AF425A78042004AA0CC /* GeoModel.swift in Sources */,
+				F5641AF225A78021004AA0CC /* GeoData.swift in Sources */,
+				F556882425A52189001A4496 /* MenuViewController.swift in Sources */,
+				F5879DB825BE18270045E2EF /* NivelesModel.swift in Sources */,
 				F55ABB8225887C4700ED099A /* AppDelegate.swift in Sources */,
+				F5641AF825A7807B004AA0CC /* CountriesModel.swift in Sources */,
 				F55ABB8C25887C4700ED099A /* ProyectoAppMoviles2.xcdatamodeld in Sources */,
+				F53440C425AAB4490063A2F6 /* CountriesTableViewCell.swift in Sources */,
 				F56BD66D2594326400B5F082 /* CountriesManager.swift in Sources */,
 				F55ABB8425887C4700ED099A /* SceneDelegate.swift in Sources */,
+				F5024C0025B679C20003783B /* PaisViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
