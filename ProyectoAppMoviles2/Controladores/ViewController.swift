@@ -15,12 +15,20 @@ class ViewController: UIViewController {
     
     var email:String = ""
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sesionButton.layer.cornerRadius = 15
-        registrarsebutton.layer.cornerRadius = 15
-        validarLogin()
+
+        self.sesionButton.layer.cornerRadius = 15
+        self.registrarsebutton.layer.cornerRadius = 15
+        self.validarLogin()
     }
+    
+
+    
+
+
     func validarLogin(){
         if FirebaseAuth.Auth.auth().currentUser != nil {
             let user = Auth.auth().currentUser
@@ -29,7 +37,9 @@ class ViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        validarLogin()
+        self.sesionButton.layer.cornerRadius = 15
+        self.registrarsebutton.layer.cornerRadius = 15
+        self.validarLogin()
     }
     
     // MARK: - Segue

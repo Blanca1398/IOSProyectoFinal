@@ -1061,12 +1061,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="T29-L7-dcM"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="x7v-Hw-Vad"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dl-xh-IZx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="61"/>
+            <point key="canvasLocation" x="-697" y="61"/>
         </scene>
     </scenes>
     <resources>
@@ -1078,6 +1078,6 @@
         <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VgK-8Z-qHv"/>
+        <segue reference="a8j-fV-tyn"/>
     </inferredMetricsTieBreakers>
 </document>
