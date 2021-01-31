@@ -8,7 +8,7 @@
 
 import Foundation
 struct GeoData:Codable {
-    let geonames: Geonames
+    let geonames: [Geonames]
 }
 
 struct Geonames:Codable {

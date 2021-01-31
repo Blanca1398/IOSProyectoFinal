@@ -22,10 +22,10 @@ class PaisViewController: UIViewController {
     @IBOutlet weak var idioma: UILabel!
     @IBOutlet weak var idiomaNativo: UILabel!
     
-    var recibirpais: String?
-    var recibircodigo:String?
+    var recibirpais: String = ""
+    var recibircodigo:String = ""
     var recibircapital:String?
-    var recibirregion:String?
+    var recibirregion:String = ""
     var recibirbandera:String?
     var recibirpaisNativo:String?
     var recibirmoneda:String?
@@ -49,26 +49,66 @@ class PaisViewController: UIViewController {
         simboloMoneda.text = recibirmonedaSimbolo
         idioma.text = recibiridioma
         idiomaNativo.text = recibiridiomaNativo
-        //pais.text =  recibirpaisEspanol
-        // recibirindice
-       
-       
-       // ImagenPerfil.image = UIImage(data: photos[photos.count-1].savedImage! as Data)
-       /*if (contactos[recibirIndice!].perfil != nil){
-           ImagenPerfil.image = UIImage(data: contactos[recibirIndice!].perfil! as Data)
-           eleccionImagen = true
-       }*/
+        
+        //Bandera
+        if recibirbandera != "" {
+            var url:NSURL?
+            var data:NSData?
+            var image:UIImage?
+            var path = ""
+            
+            path = "https://www.crwflags.com/art/countries/"
+            let paisPath = recibirpais
+            for character in paisPath {
+                if(character != " "){
+                    path = "\(path)\(character)"
+                }
+            }
+            path = "\(path).gif"
+            
+            print("El path de la imagen es \(path)")
+            
+            //Consumiendo la imagen desde la URL
+            url = NSURL(string: String(path))
+            data = NSData(contentsOf : url! as URL)
+            
+            if(data == nil){
+                path = "https://www.crwflags.com/fotw/images/"
+                let imgPathArray = Array(recibircodigo)
+                path = "\(path)\(imgPathArray[0])/\(recibircodigo).gif"
+                
+                url = NSURL(string: String(path))
+                data = NSData(contentsOf : url! as URL)
+            }
+            image = UIImage(data : data! as Data)
+            
+            banderaImg.image = image
+            
+        }
+        
+        if recibirregion.lowercased().contains("europe"){
+            continenteImg.image = UIImage(named: "europa.png")
+        }
+        else if recibirregion.lowercased().contains("africa"){
+            continenteImg.image = UIImage(named: "africa.png")
+        }
+        else if recibirregion.lowercased().contains("americas"){
+            continenteImg.image = UIImage(named: "america.png")
+        }
+        else if recibirregion.lowercased().contains("asia"){
+            continenteImg.image = UIImage(named: "asia.png")
+        }
+        else if recibirregion.lowercased().contains("oceania"){
+            continenteImg.image = UIImage(named: "oceania.png")
+        }
+        else if recibirregion.lowercased().contains("polar"){
+            continenteImg.image = UIImage(named: "polar.png")
+        }
+        else{
+           continenteImg.image = UIImage(named: "mapa.jpg")
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

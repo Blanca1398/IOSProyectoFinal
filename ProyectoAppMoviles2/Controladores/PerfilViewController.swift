@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class PerfilViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource  {
 
@@ -20,7 +23,7 @@ class PerfilViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //VARIABLES PARA CORE DATA
     var eleccionImagen : Bool = false
-    var recibirIndice = 0
+    var recibirIndice = -1
     var indiceNiveles:Int?
     var nivelMayor = 0
     
@@ -42,6 +45,7 @@ class PerfilViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if(recibirIndice != -1){
             nombrePerfilTextField.text = perfil[recibirIndice].nombre
+            print("El nombre en el core data es\n\(perfil[recibirIndice].nombre)")
             var correo = String (perfil[recibirIndice].correo ?? "")
             CorreoLabel.text = "Correo: \(correo)"
             nivelTextField.text = String (nivelMayor)
@@ -140,17 +144,122 @@ class PerfilViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // MARK: - Botones
+    
+    @IBAction func CerrarSesionButton(_ sender: UIBarButtonItem) {
+        let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+                navigationController?.popToRootViewController(animated: true)
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+                var errorMensaje:String = ""
+                if(signOutError.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                    errorMensaje = "El Usuario no existe"
+                }
+                else if(signOutError.localizedDescription == "The password is invalid or the user does not have a password."){
+                    errorMensaje = "La contraseña debe ser de al menos 6 caracteres"
+                }
+                else if( signOutError.localizedDescription == "Network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+                    errorMensaje = "No hay conexion a Internet"
+                }
+                else if( signOutError.localizedDescription == "The email address is badly formatted."){
+                    errorMensaje = "El correo electronico no esta en el formato correcto"
+                }
+                else{
+                    errorMensaje = signOutError.localizedDescription
+                }
+                //Alerta
+                let alerta = UIAlertController(title: "Error al Iniciar Sesion", message: errorMensaje, preferredStyle: .alert)
+                let actionOk = UIAlertAction(title: "Ok", style: .default){ (_) in
+                     
+                }
+                alerta.addAction(actionOk)
+                self.present(alerta, animated: true, completion: nil)
+            }
+    }
+    
     @IBAction func EliminarPerfil(_ sender: UIButton) {
+        print("ENTRO A ELIMINAR")
+        print("recibirIndice = \(recibirIndice)")
+        
+        
         if(recibirIndice != -1){
-            context.delete(perfil[recibirIndice])
-            perfil.remove(at: recibirIndice)
-            guardarCoreData()
+            let db = Firestore.firestore()
+             print(CorreoLabel.text!)
+            db.collection("perfiles").document(perfil[recibirIndice].correo!).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                     print("ELIMINO LA COLECCION")
+                    let user = Auth.auth().currentUser
+                    user?.delete { error in
+                      if let error = error {
+                        // An error happened.
+                      } else {
+                         print("ELIMINO EL PERFIL")
+                        self.context.delete(self.perfil[self.recibirIndice])
+                        self.perfil.remove(at: self.recibirIndice)
+                        
+                        do{
+
+                            try self.context.save()
+                            
+                        } catch let error as NSError {
+
+                            let alerta = UIAlertController(title: "Error", message: "Hubo un error al guardar", preferredStyle: .alert)
+                            let actionOk = UIAlertAction(title: "Entendido", style: .default, handler: nil)
+                            alerta.addAction(actionOk)
+                            self.present(alerta, animated: true, completion: nil)
+                        }
+                        
+                        print("ELIMINO EL PERFIL DE CORE DATA")
+                         self.CerrarSesionFunc()
+                        
+                      }
+                    }
+                }
+            }
+            
+            
+            
             
         }
-
-        exit(0)
-        
     }
+    
+    func CerrarSesionFunc() {
+        let firebaseAuth = Auth.auth()
+               do {
+                 try firebaseAuth.signOut()
+                   navigationController?.popToRootViewController(animated: true)
+               } catch let signOutError as NSError {
+                 print ("Error signing out: %@", signOutError)
+                   var errorMensaje:String = ""
+                   if(signOutError.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                       errorMensaje = "El Usuario no existe"
+                   }
+                   else if(signOutError.localizedDescription == "The password is invalid or the user does not have a password."){
+                       errorMensaje = "La contraseña debe ser de al menos 6 caracteres"
+                   }
+                   else if( signOutError.localizedDescription == "Network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+                       errorMensaje = "No hay conexion a Internet"
+                   }
+                   else if( signOutError.localizedDescription == "The email address is badly formatted."){
+                       errorMensaje = "El correo electronico no esta en el formato correcto"
+                   }
+                   else{
+                       errorMensaje = signOutError.localizedDescription
+                   }
+                   //Alerta
+                   let alerta = UIAlertController(title: "Error al Iniciar Sesion", message: errorMensaje, preferredStyle: .alert)
+                   let actionOk = UIAlertAction(title: "Ok", style: .default){ (_) in
+                        
+                   }
+                   alerta.addAction(actionOk)
+                   self.present(alerta, animated: true, completion: nil)
+               }
+    }
+    
+    
     
     @IBAction func cambiarFotos(_ sender: UIButton) {
         let vc = UIImagePickerController()
@@ -179,7 +288,12 @@ class PerfilViewController: UIViewController, UIImagePickerControllerDelegate, U
                    perfil[recibirIndice].setValue(image?.jpegData(compressionQuality: 1) as Data?, forKey: "foto")
                }
                try self.context.save()
-               print("Se guardaron los cambios correctamente")
+                let db = Firestore.firestore()
+                let batch = db.batch()
+                let sfRef = db.collection("perfiles").document(perfil[recibirIndice].correo!)
+                sfRef.updateData(["nombre": perfil[recibirIndice].nombre! ])
+                print("Se guardaron los cambios correctamente")
+                print("El correo que busco\(perfil[recibirIndice].correo!)")
                
            } catch {
                nombrePerfilTextField.text = ""

@@ -7,46 +7,58 @@
 //
 
 import Foundation
+protocol GeoManagerDelegate {
+    func conversionGeoPais(pais: GeoModel)
+    func huboError(cualError: Error)
+}
 
 struct GeoManager {
+    var delegado: GeoManagerDelegate?
     //GEOLOCALIZACION INVERSA
-    var geoURL = "http://api.geonames.org/findNearbyPlaceNameJSON?lat=47.3&lng=9&username=kurisuda13"
+    var geoURL = "http://api.geonames.org/findNearbyPlaceNameJSON?lat="
     //Paises
     //var moviesURL = "https://restcountries.eu/rest/v2/lang/es"
+
     
-    func realizarSolicitud () {
-        if let url = URL(string: geoURL) {
+    func realizarSolicitud(lat: Double, long: Double) {
+        
+        if let url = URL(string: "\(geoURL)\(lat)&lng=\(long)&username=kurisuda13"){
+            print("\(geoURL)\(lat)&lng=\(long)&username=kurisuda13")
             let session = URLSession(configuration: .default)
-            let tarea = session.dataTask(with: url, completionHandler: handle(data:respuesta:error:))
+            let tarea = session.dataTask(with: url) { (data, respuesta, error) in
+                if error != nil {
+                    print(error!)
+                    self.delegado?.huboError(cualError: error!)
+                    return
+                }
+                else {
+                    if let datosSeguros = data {
+                        if let country = self.parseJSON(geoData: datosSeguros) {
+                            self.delegado?.conversionGeoPais(pais: country)
+                        }
+                    }
+                }
+            }
             tarea.resume()
+            
         }
     }
-    func handle(data:Data?, respuesta: URLResponse?, error: Error?) {
-        if error != nil {
-            print(error!)
-            return
-        }
-        if let datosSeguros = data {
-            let dataString: String?  = String(data:datosSeguros, encoding: .utf8)
+
+
+    func parseJSON(geoData: Data) -> GeoModel? {
+        let decoder = JSONDecoder()
+        do {
+            let dataDecodificada = try decoder.decode(GeoData.self, from: geoData)
+            let pais = dataDecodificada.geonames[0].countryName
             
-            var datosCorregidos:String = dataString!.replacingOccurrences(of: "\\u00f1", with: "ñ")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00d1", with: "Ñ")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00c1", with: "Á")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00e1", with: "á")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00c9", with: "É")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00e9", with: "é")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00cd", with: "Í")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00ed", with: "í")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00d3", with: "Ó")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00f3", with: "ó")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00da", with: "Ú")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00fa", with: "ú")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00dc", with: "Ü")
-            datosCorregidos = datosCorregidos.replacingOccurrences(of: "\\u00fc", with: "ü")
-            
-            print(datosCorregidos)
+            //Crear obj personalizado
+            let Obj = GeoModel(pais: pais)
+            print("ya lo decodifico")
+            return Obj
+        } catch {
+            print(error)
+            delegado?.huboError(cualError: error)
+            return nil
         }
-        
-        
     }
 }

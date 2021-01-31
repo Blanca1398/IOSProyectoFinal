@@ -49,7 +49,7 @@ class JuegoViewController: UIViewController, CountriesManagerDelegate {
     
     //VARIABLES PARA CORE DATA
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var recibirIndice = 0
+    var recibirIndice = -1
     var nivelMayor = 0
     var perfil = [Perfil]()
     var niveles = [Niveles]()

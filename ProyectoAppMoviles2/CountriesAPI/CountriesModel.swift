@@ -22,5 +22,7 @@ struct CountriesModel {
     var idioma:String
     var idiomaNativo:String
     var paisEspanol:String
+    
+    
 
 }

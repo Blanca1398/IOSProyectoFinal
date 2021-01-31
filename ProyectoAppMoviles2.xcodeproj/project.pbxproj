@@ -46,7 +46,7 @@
 		F556882525A521B0001A4496 /* ExploradorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploradorViewController.swift; sourceTree = "<group>"; };
 		F556882725A521C6001A4496 /* JuegoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegoViewController.swift; sourceTree = "<group>"; };
 		F556882925A521D4001A4496 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
-		F55ABB7E25887C4700ED099A /* ProyectoAppMoviles2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoAppMoviles2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55ABB7E25887C4700ED099A /* World Flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "World Flags.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55ABB8125887C4700ED099A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55ABB8325887C4700ED099A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F55ABB8525887C4700ED099A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		F55ABB7F25887C4700ED099A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F55ABB7E25887C4700ED099A /* ProyectoAppMoviles2.app */,
+				F55ABB7E25887C4700ED099A /* World Flags.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,7 +207,7 @@
 			);
 			name = ProyectoAppMoviles2;
 			productName = ProyectoAppMoviles2;
-			productReference = F55ABB7E25887C4700ED099A /* ProyectoAppMoviles2.app */;
+			productReference = F55ABB7E25887C4700ED099A /* World Flags.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -476,7 +476,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blancacordova.ProyectoAppMoviles2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "World Flags";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -494,7 +494,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blancacordova.ProyectoAppMoviles2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "World Flags";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
